@@ -1,11 +1,11 @@
 # Submission Readiness Decision
 
-Decision: KILL_ARCHIVE
+Decision: STRONG_REVISE
 
 ICLR main-conference readiness: NO.
 
-Reason: The strongest locally available evidence is synthetic and template-generated. The paper lacks real-robot or high-fidelity simulator validation, implemented learned baselines, manual full-paper related-work depth, and paper-specific empirical figures. These are not recoverable without new external experiments or a substantially new research project.
+The v4 rebuild adds a paper-specific, multi-seed force-memory benchmark with strong baselines, ablations, uncertainty intervals, stress tests, failure cases, generated figures, and reproducible code. The local evidence supports the mechanism: force memory improves combined-stress success and safety relative to the strongest non-oracle baseline, `online_residual_system_id`.
 
-Honest terminal action: archive/kill for ICLR main. Do not submit this paper to ICLR main in its current form.
+The paper is not submission-ready because the evidence remains local. It still lacks real-robot validation, an external benchmark comparison, trained transformer checkpoints, videos/rollouts, and a full manual related-work synthesis.
 
-Revival condition: rebuild as a real empirical robotics paper with implemented model, strong real baselines, manual related work, and deployment evidence.
+Honest terminal action: keep as STRONG_REVISE. Do not submit to ICLR main until external empirical validation is added.

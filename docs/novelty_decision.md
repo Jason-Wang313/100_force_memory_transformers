@@ -1,7 +1,7 @@
 # Novelty Decision
 
-Chosen thesis: Force Memory Transformers turns the seed bet into a mechanism: Give transformers persistent force-memory channels that survive visual scene changes.
+Decision: conditionally promising.
 
-New central mechanism: Force memory transformers keeps action-critical alternatives explicit until a physical observation collapses them.
+The v4 evidence supports keeping the idea alive as STRONG_REVISE. The mechanism is more specific than generic transformer memory or generic uncertainty filtering: it targets persistent hidden force state in contact-rich manipulation.
 
-Decision: proceed as a revise/workshop-strength ICLR-style draft with synthetic but runnable evidence.
+The novelty is not yet enough for ICLR main because trained-model evidence, external benchmarks, and manual prior-work depth are missing.

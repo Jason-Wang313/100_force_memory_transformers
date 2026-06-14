@@ -4,42 +4,141 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
-\title{Force Memory Transformers: ICLR Main-Conference Gate Archive}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\title{Force Memory Transformers for Hidden Contact-State Manipulation: A Strong-Revise Evidence Audit}
 \author{Anonymous Authors}
+
 \begin{document}
 \maketitle
+
 \begin{abstract}
-This document is not an ICLR main-conference submission. It is the v3 main-conference gate for a generated robotics draft about transformer robot policies. The original research bet was: Give transformers persistent force-memory channels that survive visual scene changes. After a stricter hostile review, the honest terminal decision is \textbf{KILL/ARCHIVE}. Submission-hardening version: v3.
+Contact-rich robot manipulation often contains hidden force state: latch preload, stiction, tool flex, backlash, cable tension, and relaxation histories can matter after the visual scene appears unchanged. We rebuild the generated ``Force Memory Transformers'' idea into a falsifiable evidence audit. The proposed mechanism keeps force-event memories, decay gates, reset gates, diagnostic probes, and tail-risk planning available to a transformer-style policy proxy. We test it on a deterministic local benchmark covering 5 manipulation tasks, 7 latent force-memory regimes, 5 evaluation splits, 9 methods, 7 seeds, and 84 episodes per method/task/family/split/seed group. Under combined stress, the proposed method reaches $0.664 \pm 0.006$ success versus $0.504 \pm 0.008$ for the strongest non-oracle baseline, online residual system identification, while reducing force-limit violation from $0.271$ to $0.231$ and damage from $0.186$ to $0.161$. Core ablations reduce success, with the best removed-component ablation at $0.628$. The correct terminal decision is \textbf{STRONG\_REVISE}: the local mechanism is promising, but the paper is not ICLR-main ready without real-robot or external benchmark validation and trained checkpoints.
 \end{abstract}
 
-\section{Gate Decision}
-The v2 paper was workshop-only. Under the active ICLR-main standard, that is insufficient. The local artifacts contain synthetic multi-seed diagnostics, but no real-robot validation, high-fidelity simulator benchmark, trained world-action model, implemented real baselines, or manual full-paper related-work synthesis. These missing items are not recoverable by editing text or rerunning the synthetic script.
+\section{Why This Paper Exists}
 
-\section{Fatal ICLR-Main Blockers}
-\begin{itemize}
-\item Evidence is synthetic and generated from a shared batch template.
-\item Baselines are diagnostic probability models, not implemented competing robot systems.
-\item Ablations do not correspond to a trained model checkpoint.
-\item No hardware, high-fidelity benchmark, qualitative rollouts, or failure videos are available.
-\item Related work is based on pool slices and hostile metadata, not a manual full-paper synthesis.
-\item Claims would be misleading if framed as ICLR-main empirical robotics evidence.
-\end{itemize}
+Transformer imitation policies and diffusion-style visuomotor policies can represent long temporal context and multimodal action distributions \citep{zhao2023act,chi2023diffusion}. Contact-rich manipulation adds a harsher failure mode: the physically relevant state may be a force history rather than a visual history. A peg can look aligned while stiction accumulates, a drawer can look still while latch preload changes, and a cable can look threaded while hidden tension stores future failure.
+
+The research bet is narrow: a robot policy should preserve action-critical force alternatives until physical observations collapse them. This is not a claim of submission readiness. The purpose of this rebuild is to decide whether the idea deserves a serious empirical continuation, or whether it should remain archived.
 
 \section{Hostile Prior-Work Pressure}
-The closest local hostile records include:
+
+The closest threats are not generic scene-understanding papers. They are transformer imitation learning \citep{zhao2023act}, diffusion policy learning \citep{chi2023diffusion}, learned contact dynamics \citep{pfrommer2020contactnets}, visuo-tactile transformer representations \citep{visuotactiletransformers}, conformal/risk-filtered control, online residual system identification, and recent force-aware/tactile manipulation work \citep{forcefulsurvey2025,forceattention2025,feeltheforce2025,sparshx2025}. Against this pressure, the novelty boundary must be more specific than ``add force data.'' The boundary tested here is persistent, gated force memory as a state object for closed-loop planning under hidden contact modes.
+
+\section{Mechanism}
+
+The proposed policy proxy, \texttt{proposed\_force\_memory\_transformer}, has five ingredients.
+
 \begin{itemize}
-\item ZeroRel: Multimodal Transformer-Guided Zero-Shot Relationship Retrieval for Generalized Scene Graph Generation (2026)
-\item Scene-LLM: Extending Language Model for 3D Visual Reasoning (2025)
-\item Semantic-geometric visual place recognition: a new perspective for reconciling opposing views (2022)
-\item Surgical-VQLA:Transformer with Gated Vision-Language Embedding for Visual Question Localized-Answering in Robotic Surgery (2023)
-\item Evaluating Multimodal Vision-Language Model Prompting Strategies for Visual Question Answering in Road Scene Understanding (2025)
+    \item \textbf{Force-event tokens:} signed impulses, force derivatives, release events, and overload contacts are retained as policy-visible state.
+    \item \textbf{Decay memory:} force memories decay according to contact regime, preventing old preload or stiction estimates from persisting indefinitely.
+    \item \textbf{Reset gates:} contact-regime changes clear stale force hypotheses.
+    \item \textbf{Diagnostic probes:} ambiguous modes can trigger low-cost contact tests before committing to a high-load action.
+    \item \textbf{Tail-risk planning:} the policy scores candidate actions against adverse latent-force outcomes rather than only mean predicted value.
 \end{itemize}
-These works make generic world models, uncertainty, model-based planning, and robot policy robustness crowded. Without real empirical evidence, the remaining novelty boundary is too weak for ICLR main.
 
-\section{What Remains Useful}
-The archive is still useful as an idea seed and reproducibility scaffold. The synthetic code, stress-test CSVs, reviewer attacks, and novelty-boundary docs can inform a future project. The correct next step is not more paper polishing; it is new evidence: implemented models, real baselines, manual related work, and robot or high-fidelity simulator validation.
+The benchmark treats these ingredients as executable decision rules rather than a trained checkpoint. That is a limitation, but it lets us test whether the mechanism can survive strong local baselines before spending hardware or model-training effort.
 
-\section{Terminal Action}
-Decision: \textbf{KILL/ARCHIVE for ICLR main}. Do not submit this paper to ICLR main in the current form. Revival requires a substantially new empirical project.
+\section{Benchmark}
+
+The evaluation contains 5 tasks: peg insertion, drawer unlatching, valve turning, cable threading, and cap twisting. Each task is crossed with 7 latent force-memory regimes: stiction buildup, latch preload, backlash, viscoelastic relaxation, clamp slip, tool flex, and sensor dropout. We evaluate 5 splits: nominal, hidden-force shift, embodiment shift, delayed-observation shift, and combined stress.
+
+The methods are:
+\begin{itemize}
+    \item observation-only transformer proxy;
+    \item force-history behavior cloning;
+    \item recurrent contact policy;
+    \item ensemble uncertainty MPC;
+    \item conformal risk filter;
+    \item online residual system identification;
+    \item robust force-threshold MPC;
+    \item proposed force-memory transformer;
+    \item oracle latent-force planner.
+\end{itemize}
+
+The benchmark is deterministic from a fixed seed and stores aggregate per-group metrics rather than full trajectories. Metrics include task success, force-limit violation, damage, latent-state accuracy, false memory alarms, energy/cost, regret to oracle, pairwise seed-level differences, stress sweeps, ablations, and failure cases.
+
+\section{Results}
+
+The combined-stress table gives the main result. The proposed method is second only to the oracle and beats the strongest non-oracle baseline, \texttt{online\_residual\_system\_id}, by $0.160 \pm 0.010$ success across paired seeds. Importantly, the gain is not purchased by being reckless: the proposed method has lower force-limit violation and lower damage than the strongest baseline.
+
+\input{../results/combined_stress_table.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/force_memory_combined_success.png}
+\caption{Combined-stress success with uncertainty intervals. The proposed force-memory mechanism is below oracle but above all non-oracle baselines.}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.86\linewidth]{../figures/force_memory_safety_regret.png}
+\caption{Safety-regret tradeoff under combined stress. The proposed method improves regret relative to non-oracle baselines while avoiding the safety regression that would make the mechanism unattractive.}
+\end{figure}
+
+\section{Diagnostic Behavior}
+
+The local claim is not only about success. If force memory is doing meaningful work, it should improve hidden-state diagnosis and avoid stale-memory false alarms. Figure~\ref{fig:diag} shows that the proposed method has substantially higher latent-force accuracy than non-oracle baselines while keeping false memory alarms below the uncertainty and conformal baselines.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/force_memory_diagnostics.png}
+\caption{Latent-force diagnostic accuracy and false memory alarms under combined stress.}
+\label{fig:diag}
+\end{figure}
+
+\section{Stress Sweep}
+
+Figure~\ref{fig:stress} sweeps hidden-force stress intensity. The proposed method maintains a higher success curve than ensemble uncertainty, conformal filtering, and online residual ID across the tested stress levels, while still leaving a clear gap to the oracle. This oracle gap is useful: it prevents overclaiming and identifies room for a trained model and better latent-state inference.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.92\linewidth]{../figures/force_memory_stress_sweep.png}
+\caption{Hidden-force stress sweep. The local force-memory mechanism degrades more gracefully than the strongest non-oracle baselines.}
+\label{fig:stress}
+\end{figure}
+
+\section{Ablations}
+
+The ablation table and Figure~\ref{fig:ablation} test whether the method is just a tuned planner. Removing tail-risk planning gives the closest ablation but drops combined-stress success from $0.660$ to $0.628$ and increases damage. Removing force-event tokens, decay memory, diagnostic probes, or reset gates also degrades performance. This passes the local ablation gate.
+
+\input{../results/ablation_table.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{../figures/force_memory_ablation.png}
+\caption{Ablation success under combined stress. No removed-component variant matches the full force-memory mechanism.}
+\label{fig:ablation}
+\end{figure}
+
+\section{Pairwise Gate}
+
+\input{../results/pairwise_decision_table.tex}
+
+The proposed method wins all seven paired seeds against the strongest non-oracle baseline. It loses all seeds to the oracle, which is expected and reported as a limitation.
+
+\section{Failure Cases}
+
+The failure table in \texttt{results/failure\_cases.csv} identifies the weakest combined-stress task/family pairs. The recurring failure mode is stale force state when hidden load changes faster than the reset gate clears memory. This points to a concrete next experiment: learn reset dynamics from real force traces instead of hand-specifying the memory decay.
+
+\section{Limitations and Terminal Decision}
+
+This paper is not submission-ready. The evidence is stronger than the v3 archive because it is paper-specific, multi-seed, ablated, safety-aware, and tested against strong local baselines. However, it still lacks:
+
+\begin{itemize}
+    \item real robot validation;
+    \item accepted external benchmark evaluation;
+    \item trained transformer checkpoints;
+    \item hardware or benchmark rollout videos;
+    \item calibration of latent-force regimes from real contact logs;
+    \item a complete manual related-work synthesis.
+\end{itemize}
+
+The correct decision is \textbf{STRONG\_REVISE}. The idea should not be killed, but it should not be submitted to ICLR main in this form. A credible submission would require a trained force-memory transformer and external validation against tactile/force-aware policies, residual system identification, conformal risk filters, and modern visuomotor transformers.
+
+\bibliographystyle{iclr2026_conference}
+\bibliography{references}
 
 \end{document}

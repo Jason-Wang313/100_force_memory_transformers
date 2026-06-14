@@ -1,6 +1,8 @@
-ablation,combined_stress_mean_success,ci95_success,interpretation
-full_proposed_branch_mechanism,0.6650,0.0172,all components
-minus_branch_atlas,0.5529,0.0140,removes explicit unrealized futures
-minus_tail_risk_objective,0.5945,0.0250,uses mean predicted value only
-minus_diagnostic_probe,0.5860,0.0124,does not actively test ambiguous physical modes
-minus_failure_memory,0.6226,0.0230,does not reuse repaired beliefs
+ablation,mean_mean_success,ci95_mean_success,mean_mean_force_violation,ci95_mean_force_violation,mean_mean_damage,ci95_mean_damage,mean_mean_latent_accuracy,ci95_mean_latent_accuracy,mean_mean_false_memory_alarm,ci95_mean_false_memory_alarm,mean_mean_energy,ci95_mean_energy,mean_mean_cost,ci95_mean_cost,groups,interpretation
+full_force_memory_transformer,0.6595,0.0056,0.2253,0.0031,0.1670,0.0041,0.6569,0.0054,0.1155,0.0036,0.4604,0.0008,0.7598,0.0041,7,all proposed components
+minus_decay_memory,0.5573,0.0049,0.2602,0.0052,0.1821,0.0076,0.5202,0.0063,0.2314,0.0055,0.4732,0.0008,0.8045,0.0087,7,removes calibrated memory decay
+minus_diagnostic_probes,0.5870,0.0030,0.2494,0.0054,0.1711,0.0069,0.5734,0.0058,0.1370,0.0030,0.4591,0.0003,0.7692,0.0061,7,does not actively disambiguate hidden force modes
+minus_force_event_tokens,0.5656,0.0020,0.2531,0.0057,0.1770,0.0034,0.5250,0.0041,0.1621,0.0025,0.4705,0.0005,0.7922,0.0042,7,removes signed force-event tokens
+minus_memory_reset_gate,0.5793,0.0056,0.2621,0.0051,0.1800,0.0048,0.5649,0.0065,0.2872,0.0054,0.4666,0.0007,0.7954,0.0060,7,keeps stale force memories after contact regime changes
+minus_tail_risk_planner,0.6282,0.0060,0.2799,0.0056,0.1880,0.0086,0.6433,0.0039,0.1252,0.0035,0.4556,0.0010,0.7994,0.0088,7,uses mean predicted value without tail-risk planning
+recurrent_memory_only,0.4815,0.0044,0.3026,0.0068,0.2101,0.0050,0.4358,0.0065,0.1837,0.0063,0.4732,0.0004,0.8480,0.0061,7,ordinary recurrence without force-specific state
