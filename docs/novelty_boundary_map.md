@@ -1,13 +1,23 @@
 # Novelty Boundary Map
 
 ## Crowded Territory
-- Bigger data/model scaling.
-- New benchmark only.
-- Generic active learning or uncertainty.
-- Combining a planner with a learned policy without a new state/action object.
+
+- Generic robot transformers.
+- More imitation data.
+- Standard recurrent memory.
+- Generic uncertainty-aware MPC.
+- Conformal safety filters.
+- Online residual system identification.
+- Tactile or force feedback without a persistent state object.
 
 ## Claimed Boundary
-Force memory transformers keeps action-critical alternatives explicit until a physical observation collapses them.
 
-## What Would Falsify The Claim
-If observed-only baselines match the adverse-mode coverage and closed-loop success of the proposed branch-aware mechanism, the paper should be revised or killed.
+The local contribution is a persistent force-memory state for hidden contact regimes. It is not just a larger transformer or a safety wrapper; it is an explicit memory of force events, decay, reset gates, diagnostic probes, and tail-risk planning.
+
+## Current Evidence
+
+The boundary is locally supported because the proposed method beats online residual system ID and conformal/uncertainty baselines under hidden-force shifts, and because removed-component ablations reduce success or worsen safety.
+
+## Boundary Still Not Proven Externally
+
+The claim is not yet proven against trained tactile transformers, real robot system-ID pipelines, or accepted external manipulation benchmarks.

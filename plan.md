@@ -1,3 +1,12 @@
 # Plan
 
-Build paper 100 `force_memory_transformers` from the shared pool, compile PDF to Downloads only, and publish the exact-name public repo.
+Paper 100 v4 rebuild executed from `docs/paper100_rebuild_plan.md`.
+
+Terminal result: STRONG_REVISE.
+
+Next revival work, if this paper is continued later:
+
+1. Implement the force-memory transformer as a trained policy rather than a simulator proxy.
+2. Run an external manipulation benchmark or real robot suite.
+3. Release checkpoints, rollouts, hardware/benchmark videos, and per-task logs.
+4. Expand the related-work audit around tactile/force memory, contact-rich manipulation, transformer imitation, conformal safe control, and online system identification.

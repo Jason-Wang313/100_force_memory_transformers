@@ -1,0 +1,9 @@
+case_id,task,family,proposed_success,strongest_baseline,baseline_success,success_gap,proposed_force_violation,proposed_damage,lesson
+1,drawer_unlatching,stiction_buildup,0.6310,online_residual_system_id,0.5408,0.0901,0.2364,0.1718,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+2,drawer_unlatching,backlash,0.6684,online_residual_system_id,0.5561,0.1122,0.1939,0.1684,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+3,valve_turning,tool_flex,0.6412,online_residual_system_id,0.5255,0.1156,0.2177,0.1412,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+4,drawer_unlatching,clamp_slip,0.6548,online_residual_system_id,0.5340,0.1207,0.2602,0.1667,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+5,cable_threading,stiction_buildup,0.6514,online_residual_system_id,0.5272,0.1241,0.2466,0.1531,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+6,cap_twisting,sensor_dropout,0.6378,online_residual_system_id,0.5085,0.1293,0.2415,0.1684,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+7,valve_turning,sensor_dropout,0.6395,online_residual_system_id,0.5085,0.1310,0.2398,0.1344,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+8,peg_insertion,tool_flex,0.6684,online_residual_system_id,0.5323,0.1361,0.2177,0.1531,force memory is weakest when hidden load changes faster than the reset gate can clear stale state

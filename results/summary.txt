@@ -1,16 +1,46 @@
-Submission-hardening experiment for paper 100 force_memory_transformers
-Seven seeds, 600 episodes per seed, strong baselines, ablations, stress sweep, and negative cases.
-observed_only_behavior_clone hidden_mode_shift mean_success=0.4136 ci95=0.0190 tail=0.5864
-observed_only_behavior_clone combined_stress mean_success=0.3162 ci95=0.0086 tail=0.6838
-data_augmentation_wam hidden_mode_shift mean_success=0.4852 ci95=0.0184 tail=0.5148
-data_augmentation_wam combined_stress mean_success=0.4221 ci95=0.0161 tail=0.5779
-scalar_uncertainty_planner hidden_mode_shift mean_success=0.5726 ci95=0.0181 tail=0.4274
-scalar_uncertainty_planner combined_stress mean_success=0.4971 ci95=0.0142 tail=0.5029
-ensemble_disagreement_planner hidden_mode_shift mean_success=0.5938 ci95=0.0096 tail=0.4062
-ensemble_disagreement_planner combined_stress mean_success=0.5405 ci95=0.0119 tail=0.4595
-conformal_risk_filter hidden_mode_shift mean_success=0.6060 ci95=0.0166 tail=0.3940
-conformal_risk_filter combined_stress mean_success=0.5562 ci95=0.0084 tail=0.4438
-proposed_branch_mechanism hidden_mode_shift mean_success=0.6969 ci95=0.0138 tail=0.3031
-proposed_branch_mechanism combined_stress mean_success=0.6919 ci95=0.0210 tail=0.3081
-oracle_branch_upper_bound hidden_mode_shift mean_success=0.7755 ci95=0.0084 tail=0.2245
-oracle_branch_upper_bound combined_stress mean_success=0.7683 ci95=0.0219 tail=0.2317
+Paper 100 force_memory_transformers evidence rebuild
+Design: 5 tasks x 7 latent force-memory regimes x 5 splits x 9 methods, 7 seeds, 84 episodes/group.
+Terminal decision: STRONG_REVISE
+Rationale: local benchmark supports the force-memory mechanism against the strongest non-oracle baseline, but no real-robot or external benchmark validation is available
+
+Combined-stress ranking:
+oracle_latent_force_planner: success=0.833 +/- 0.007, viol=0.186, damage=0.135, latent_acc=0.820, false_alarm=0.053, regret=0.000
+proposed_force_memory_transformer: success=0.664 +/- 0.006, viol=0.231, damage=0.161, latent_acc=0.662, false_alarm=0.114, regret=0.169
+online_residual_system_id: success=0.504 +/- 0.008, viol=0.271, damage=0.186, latent_acc=0.443, false_alarm=0.226, regret=0.329
+ensemble_uncertainty_mpc: success=0.466 +/- 0.007, viol=0.271, damage=0.194, latent_acc=0.344, false_alarm=0.249, regret=0.367
+recurrent_contact_policy: success=0.458 +/- 0.005, viol=0.311, damage=0.213, latent_acc=0.409, false_alarm=0.180, regret=0.375
+conformal_risk_filter: success=0.435 +/- 0.010, viol=0.246, damage=0.180, latent_acc=0.321, false_alarm=0.274, regret=0.398
+force_history_behavior_cloning: success=0.405 +/- 0.005, viol=0.323, damage=0.221, latent_acc=0.349, false_alarm=0.197, regret=0.428
+robust_force_threshold_mpc: success=0.397 +/- 0.009, viol=0.229, damage=0.169, latent_acc=0.302, false_alarm=0.295, regret=0.437
+observation_only_transformer: success=0.317 +/- 0.006, viol=0.335, damage=0.236, latent_acc=0.254, false_alarm=0.234, regret=0.517
+
+Gate outcomes:
+success_gate: True
+safety_gate: True
+pairwise_gate: True
+ablation_gate: True
+success_margin_vs_strongest: 0.15981535471331387
+force_violation_delta_vs_strongest: -0.03945578231292521
+damage_delta_vs_strongest: -0.024392614188532585
+ablation_margin_vs_best_removed_component: 0.031341107871720064
+strongest_non_oracle_baseline: online_residual_system_id
+best_removed_component: minus_tail_risk_planner
+
+Pairwise proposed comparisons:
+conformal_risk_filter: diff=0.229 +/- 0.011, wins=7/7, decision=proposed_better
+ensemble_uncertainty_mpc: diff=0.198 +/- 0.009, wins=7/7, decision=proposed_better
+force_history_behavior_cloning: diff=0.258 +/- 0.008, wins=7/7, decision=proposed_better
+observation_only_transformer: diff=0.347 +/- 0.006, wins=7/7, decision=proposed_better
+online_residual_system_id: diff=0.160 +/- 0.010, wins=7/7, decision=proposed_better
+oracle_latent_force_planner: diff=-0.169 +/- 0.006, wins=0/7, decision=not_decisive
+recurrent_contact_policy: diff=0.206 +/- 0.007, wins=7/7, decision=proposed_better
+robust_force_threshold_mpc: diff=0.267 +/- 0.013, wins=7/7, decision=proposed_better
+
+Ablations:
+full_force_memory_transformer: success=0.660 +/- 0.006, damage=0.167, false_alarm=0.115, note=all proposed components
+minus_tail_risk_planner: success=0.628 +/- 0.006, damage=0.188, false_alarm=0.125, note=uses mean predicted value without tail-risk planning
+minus_diagnostic_probes: success=0.587 +/- 0.003, damage=0.171, false_alarm=0.137, note=does not actively disambiguate hidden force modes
+minus_memory_reset_gate: success=0.579 +/- 0.006, damage=0.180, false_alarm=0.287, note=keeps stale force memories after contact regime changes
+minus_force_event_tokens: success=0.566 +/- 0.002, damage=0.177, false_alarm=0.162, note=removes signed force-event tokens
+minus_decay_memory: success=0.557 +/- 0.005, damage=0.182, false_alarm=0.231, note=removes calibrated memory decay
+recurrent_memory_only: success=0.482 +/- 0.004, damage=0.210, false_alarm=0.184, note=ordinary recurrence without force-specific state

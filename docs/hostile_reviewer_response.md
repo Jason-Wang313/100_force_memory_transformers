@@ -1,26 +1,17 @@
-        # Hostile Reviewer Response
+# Hostile Reviewer Response
 
-        Paper: 100 Force Memory Transformers
+## Attack: This is still not real robotics evidence.
 
-        ## Strongest Technical Threats
-        - ZeroRel: Multimodal Transformer-Guided Zero-Shot Relationship Retrieval for Generalized Scene Graph Generation (2026)
-- Scene-LLM: Extending Language Model for 3D Visual Reasoning (2025)
-- Semantic-geometric visual place recognition: a new perspective for reconciling opposing views (2022)
-- Surgical-VQLA:Transformer with Gated Vision-Language Embedding for Visual Question Localized-Answering in Robotic Surgery (2023)
-- Evaluating Multimodal Vision-Language Model Prompting Strategies for Visual Question Answering in Road Scene Understanding (2025)
-- Masked Vision-Language Transformers for Scene Text Recognition (2022)
-- Evaluating Urban Visual Attractiveness Perception Using Multimodal Large Language Model and Street View Images (2025)
-- Cross-scene visual context parsing with large vision-language model (2025)
+Response: Correct. The v4 result is STRONG_REVISE, not submission-ready. The benchmark is stronger than the v3 template because it is mechanism-specific, multi-seed, safety-aware, and ablated, but it does not replace hardware or external benchmark validation.
 
-        ## ICLR Main Response
-        A hostile ICLR reviewer would be correct to reject this as a main-conference submission. The v2 paper has reproducible synthetic evidence and careful limitations, but it does not contain the real robot, high-fidelity simulator, learned model, or manual related-work depth needed for the ICLR main track.
+## Attack: The baselines are still proxies.
 
-        ## Honest Action
-        The paper is marked `KILL_ARCHIVE`. This avoids converting a generated workshop-style idea into an overstated main-conference claim.
+Response: Also correct. The baselines model distinct decision rules: observation-only transformer, force-history cloning, recurrent contact policy, ensemble MPC, conformal risk filtering, online residual system ID, and robust threshold MPC. They are stronger than the v3 toy baselines, but they are not trained competing systems.
 
-        ## What Would Be Needed To Revive
-        - Real robot or high-fidelity benchmark experiments.
-        - Implemented model and baselines, not synthetic probability tables.
-        - Manual full-paper related-work audit.
-        - Paper-specific writing and figures.
-        - Evidence that the core mechanism is learned and useful under deployment shift.
+## Attack: Why does this survive at all?
+
+Response: The local mechanism is decisive enough to keep. The proposed method beats the strongest non-oracle baseline by `0.160 +/- 0.010` success under combined stress, wins all seeds, improves force violation and damage, and survives ablations.
+
+## Attack: What would make it submit-worthy?
+
+Response: A trained force-memory transformer, external benchmark validation, real or high-fidelity rollouts, checkpoint/model-card release, video evidence, and deeper manual related work.
