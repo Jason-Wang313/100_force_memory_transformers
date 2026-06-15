@@ -6,15 +6,17 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{microtype}
+\raggedbottom
 
-\title{Force Memory Transformers for Hidden Contact-State Manipulation: A Strong-Revise Evidence Audit}
+\title{Force Memory Transformers for Hidden Contact State}
 \author{Anonymous Authors}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Contact-rich robot manipulation often contains hidden force state: latch preload, stiction, tool flex, backlash, cable tension, and relaxation histories can matter after the visual scene appears unchanged. We rebuild the generated ``Force Memory Transformers'' idea into a falsifiable evidence audit. The proposed mechanism keeps force-event memories, decay gates, reset gates, diagnostic probes, and tail-risk planning available to a transformer-style policy proxy. We test it on a deterministic local benchmark covering 5 manipulation tasks, 7 latent force-memory regimes, 5 evaluation splits, 9 methods, 7 seeds, and 84 episodes per method/task/family/split/seed group. Under combined stress, the proposed method reaches $0.664 \pm 0.006$ success versus $0.504 \pm 0.008$ for the strongest non-oracle baseline, online residual system identification, while reducing force-limit violation from $0.271$ to $0.231$ and damage from $0.186$ to $0.161$. Core ablations reduce success, with the best removed-component ablation at $0.628$. The correct terminal decision is \textbf{STRONG\_REVISE}: the local mechanism is promising, but the paper is not ICLR-main ready without real-robot or external benchmark validation and trained checkpoints.
+Contact-rich robot manipulation often contains hidden force state: latch preload, stiction, tool flex, backlash, cable tension, and relaxation histories can matter after the visual scene appears unchanged. We rebuild the generated ``Force Memory Transformers'' idea into a falsifiable evidence audit and rerun the full benchmark on 2026-06-15. The proposed mechanism keeps force-event memories, decay gates, reset gates, diagnostic probes, and tail-risk planning available to a transformer-style policy proxy. We test it on a deterministic local benchmark covering 5 manipulation tasks, 7 latent force-memory regimes, 5 evaluation splits, 9 methods, 7 seeds, and 84 episodes per method/task/family/split/seed group. Under combined stress, the proposed method reaches $0.664 \pm 0.006$ success versus $0.504 \pm 0.008$ for the strongest non-oracle baseline, online residual system identification, while reducing force-limit violation from $0.271$ to $0.231$ and damage from $0.186$ to $0.161$. Core ablations reduce success, with the best removed-component ablation at $0.628$. The correct terminal decision is \textbf{STRONG\_REVISE}: the local mechanism is promising, but the paper is not ICLR-main ready without real-robot or external benchmark validation and trained checkpoints.
 \end{abstract}
 
 \section{Why This Paper Exists}
@@ -58,7 +60,7 @@ The methods are:
     \item oracle latent-force planner.
 \end{itemize}
 
-The benchmark is deterministic from a fixed seed and stores aggregate per-group metrics rather than full trajectories. Metrics include task success, force-limit violation, damage, latent-state accuracy, false memory alarms, energy/cost, regret to oracle, pairwise seed-level differences, stress sweeps, ablations, and failure cases.
+The benchmark is deterministic from a fixed seed and stores aggregate per-group metrics rather than full trajectories. Metrics include task success, force-limit violation, damage, latent-state accuracy, false memory alarms, energy/cost, regret to oracle, pairwise seed-level differences, stress sweeps, ablations, and failure cases. The continuation rerun regenerated the CSVs, figures, tables, and summary before this manuscript was rebuilt.
 
 \section{Results}
 
@@ -136,9 +138,12 @@ This paper is not submission-ready. The evidence is stronger than the v3 archive
     \item a complete manual related-work synthesis.
 \end{itemize}
 
-The correct decision is \textbf{STRONG\_REVISE}. The idea should not be killed, but it should not be submitted to ICLR main in this form. A credible submission would require a trained force-memory transformer and external validation against tactile/force-aware policies, residual system identification, conformal risk filters, and modern visuomotor transformers.
+The correct decision after the 2026-06-15 continuation rerun is \textbf{STRONG\_REVISE}. The idea should not be killed, but it should not be submitted to ICLR main in this form. A credible submission would require a trained force-memory transformer and external validation against tactile/force-aware policies, residual system identification, conformal risk filters, and modern visuomotor transformers.
 
+\begingroup
+\raggedright
 \bibliographystyle{iclr2026_conference}
 \bibliography{references}
+\endgroup
 
 \end{document}

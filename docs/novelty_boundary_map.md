@@ -16,7 +16,7 @@ The local contribution is a persistent force-memory state for hidden contact reg
 
 ## Current Evidence
 
-The boundary is locally supported because the proposed method beats online residual system ID and conformal/uncertainty baselines under hidden-force shifts, and because removed-component ablations reduce success or worsen safety.
+The boundary is locally supported because the proposed method beats online residual system ID and conformal/uncertainty baselines under hidden-force shifts, and because removed-component ablations reduce success or worsen safety. The 2026-06-15 continuation rerun reproduced this pattern.
 
 ## Boundary Still Not Proven Externally
 

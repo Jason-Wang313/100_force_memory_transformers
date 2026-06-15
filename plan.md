@@ -1,6 +1,6 @@
 # Plan
 
-Paper 100 v4 rebuild executed from `docs/paper100_rebuild_plan.md`.
+Paper 100 v4.1 continuation rebuild executed from `docs/paper100_iclr_submission_execution_plan_20260615.md`.
 
 Terminal result: STRONG_REVISE.
 

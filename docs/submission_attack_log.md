@@ -16,7 +16,7 @@ Action: require external manipulation validation before submission.
 
 ## Attack 3: Baselines are weak
 
-Verdict: partly addressed. v4 adds recurrent, ensemble uncertainty, conformal risk, online residual system-ID, robust threshold MPC, and oracle baselines.
+Verdict: partly addressed. v4.1 retains recurrent, ensemble uncertainty, conformal risk, online residual system-ID, robust threshold MPC, and oracle baselines.
 
 Action: keep as STRONG_REVISE because baselines are stronger but still proxy systems.
 
