@@ -2,7 +2,7 @@
 
 ## Supported Local Claim
 
-Persistent force-memory state improves closed-loop manipulation under hidden contact-force shifts in the local benchmark.
+Persistent force-memory state improves closed-loop manipulation under hidden contact-force shifts in the local benchmark. The 2026-06-15 continuation rerun reproduced this local claim.
 
 ## Evidence
 
@@ -11,6 +11,7 @@ Persistent force-memory state improves closed-loop manipulation under hidden con
 - Proposed force-violation and damage are lower than the strongest baseline.
 - Pairwise proposed-vs-strongest success difference: `0.160 +/- 0.010`, winning `7/7` seeds.
 - Ablations removing force-event tokens, memory decay, tail-risk planning, diagnostic probing, reset gates, or force-specific memory reduce success.
+- Maximum hidden-force stress remains positive for the proposed method: `0.662` success vs `0.486` for `online_residual_system_id`.
 
 ## Scope
 

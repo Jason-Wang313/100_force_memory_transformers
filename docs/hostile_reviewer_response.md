@@ -2,7 +2,7 @@
 
 ## Attack: This is still not real robotics evidence.
 
-Response: Correct. The v4 result is STRONG_REVISE, not submission-ready. The benchmark is stronger than the v3 template because it is mechanism-specific, multi-seed, safety-aware, and ablated, but it does not replace hardware or external benchmark validation.
+Response: Correct. The v4.1 continuation result is STRONG_REVISE, not submission-ready. The benchmark is stronger than the v3 template because it is mechanism-specific, multi-seed, safety-aware, and ablated, but it does not replace hardware or external benchmark validation.
 
 ## Attack: The baselines are still proxies.
 
@@ -10,7 +10,7 @@ Response: Also correct. The baselines model distinct decision rules: observation
 
 ## Attack: Why does this survive at all?
 
-Response: The local mechanism is decisive enough to keep. The proposed method beats the strongest non-oracle baseline by `0.160 +/- 0.010` success under combined stress, wins all seeds, improves force violation and damage, and survives ablations.
+Response: The local mechanism is decisive enough to keep. The proposed method beats the strongest non-oracle baseline by `0.160 +/- 0.010` success under combined stress, wins all seeds, improves force violation and damage, survives ablations, and remains ahead at maximum hidden-force stress.
 
 ## Attack: What would make it submit-worthy?
 

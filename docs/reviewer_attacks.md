@@ -7,3 +7,5 @@
 5. The oracle gap remains large: `0.664` success versus oracle `0.833` under combined stress.
 6. The stress families are plausible but not calibrated from hardware logs.
 7. Related work still needs a full manual synthesis before submission.
+
+Response after v4.1: keep the paper as STRONG_REVISE because the local mechanism reproduced, but do not submit it without external validation.

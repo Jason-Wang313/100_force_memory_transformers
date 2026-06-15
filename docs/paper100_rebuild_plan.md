@@ -62,3 +62,7 @@ Use vectorized arrays, streamed CSV writing where useful, and aggregate tables r
 Completed: 2026-06-14 22:47:15 +0100
 
 The benchmark was implemented and run. Terminal gate result: STRONG_REVISE. The proposed method beat the strongest non-oracle baseline, `online_residual_system_id`, on combined-stress success and safety, and no core ablation matched the full method. The paper remains not ICLR-main ready because no real robot or external benchmark validation is available.
+
+## Continuation Result
+
+Re-executed on 2026-06-15 under the Paper 100 ICLR-main submission-readiness plan. The result remained `STRONG_REVISE`: `proposed_force_memory_transformer` beat `online_residual_system_id` on combined-stress success (0.664 vs 0.504), improved force-limit violation and damage, won the paired seed gate, and no removed-component ablation matched the full method. It still is not ICLR-main ready without external robot or accepted benchmark validation.

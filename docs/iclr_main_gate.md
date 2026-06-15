@@ -4,7 +4,7 @@ Paper: 100 force_memory_transformers
 
 Previous v3 decision: KILL_ARCHIVE
 
-Current v4 gate verdict: STRONG_REVISE
+Current v4.1 gate verdict: STRONG_REVISE
 
 ## Gate Evidence
 
@@ -16,6 +16,8 @@ Current v4 gate verdict: STRONG_REVISE
 - Proposed vs strongest baseline force-violation delta: `-0.039`.
 - Proposed vs strongest baseline damage delta: `-0.024`.
 - Full method vs best removed-component ablation margin: `+0.031`.
+- Maximum hidden-force stress: proposed success `0.662` vs `0.486` for `online_residual_system_id`.
+- Fresh rerun status: reproduced on 2026-06-15.
 
 ## Passed Local Gates
 

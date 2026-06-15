@@ -14,6 +14,7 @@
 - [x] Failure cases.
 - [x] Generated figures and LaTeX tables.
 - [x] Honest terminal gate.
+- [x] Fresh 2026-06-15 continuation rerun logged at `C:/Users/wangz/robotics_massive_pool_paper_factory/logs/100_force_memory_transformers_continuation_rerun_20260615.log`.
 - [ ] Real robot validation.
 - [ ] External benchmark validation.
 - [ ] Trained checkpoint release.
