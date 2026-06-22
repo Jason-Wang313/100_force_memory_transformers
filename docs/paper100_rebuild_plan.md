@@ -66,3 +66,7 @@ The benchmark was implemented and run. Terminal gate result: STRONG_REVISE. The 
 ## Continuation Result
 
 Re-executed on 2026-06-15 under the Paper 100 ICLR-main submission-readiness plan. The result remained `STRONG_REVISE`: `proposed_force_memory_transformer` beat `online_residual_system_id` on combined-stress success (0.664 vs 0.504), improved force-limit violation and damage, won the paired seed gate, and no removed-component ablation matched the full method. It still is not ICLR-main ready without external robot or accepted benchmark validation.
+
+## v5 Expanded Continuation Result
+
+Re-executed on 2026-06-22 under `docs/paper100_expanded_submission_plan_20260622.md`. The protocol expanded to 6 tasks, 8 regimes, 8 splits, 15 methods, 10 seeds, 345,600 main rollout rows, 115,200 ablation rows, 288,000 stress rows, and 138,240 fixed-risk rows. The terminal result remained `STRONG_REVISE`: all frozen local empirical gates passed, but the scope gate failed because there is still no real robot validation, accepted high-fidelity benchmark validation, external benchmark comparison, or trained checkpoint.

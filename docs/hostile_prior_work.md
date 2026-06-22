@@ -1,6 +1,6 @@
 # Hostile Prior Work
 
-The v3 hostile set was mostly scene-graph and vision-language metadata. For v4, the threat model is narrowed to papers and families that genuinely pressure the force-memory claim.
+The v3 hostile set was mostly scene-graph and vision-language metadata. For v5, the threat model is narrowed to papers and families that genuinely pressure the force-memory claim.
 
 ## Direct Threats
 
@@ -12,9 +12,9 @@ The v3 hostile set was mostly scene-graph and vision-language metadata. For v4, 
 - Online residual system identification: adaptive baselines can infer hidden mechanical parameters. The paper must show force memory beats online ID in the hidden force regimes.
 - Recent force-aware foundation-model and tactile representation work: the field is moving toward force/tactile policy learning, so local simulation evidence is not enough for main-conference readiness.
 
-## v4 Evidence Against These Threats
+## v5 Evidence Against These Threats
 
-The local benchmark includes recurrent memory, uncertainty, conformal risk, online residual ID, and robust force-threshold baselines. The proposed method beats the strongest non-oracle baseline, `online_residual_system_id`, by `0.160 +/- 0.010` success under combined stress, with lower force-limit violation and damage.
+The local benchmark now includes observation-only, force-history, recurrent, diffusion, ensemble uncertainty, adaptive impedance, HMM-MPC, particle-filter force-belief, active probing, conformal filtering, online residual ID, robust force-thresholding, prior force memory, v5 risk-calibrated force memory, and oracle references. V5 reaches hard success `0.73941`, force violation `0.20825`, damage `0.09010`, regret `0.07661`, utility `0.32439`, and ECE `0.01744`, clearing the frozen local gates against the tested non-oracle references.
 
 ## Remaining Prior-Work Risk
 

@@ -1,0 +1,11 @@
+violation_budget,damage_budget,baseline,units,coverage_delta_mean,coverage_delta_ci95,utility_delta_mean,utility_delta_ci95,decision
+0.050000,0.050000,conformal_risk_filter,480,0.517708,0.003775,0.284179,0.002264,proposed_better
+0.050000,0.050000,online_residual_system_id,480,0.517708,0.003775,0.284179,0.002264,proposed_better
+0.050000,0.050000,adaptive_impedance_mpc,480,0.508073,0.003665,0.282116,0.002115,proposed_better
+0.050000,0.050000,particle_filter_force_belief_mpc,480,0.513281,0.003685,0.282958,0.002180,proposed_better
+0.050000,0.050000,proposed_force_memory_transformer_v4,480,0.517708,0.003775,0.284179,0.002264,proposed_better
+0.100000,0.080000,conformal_risk_filter,480,0.386458,0.007922,0.526742,0.001092,proposed_better
+0.100000,0.080000,online_residual_system_id,480,0.431076,0.009173,0.482336,0.000879,proposed_better
+0.100000,0.080000,adaptive_impedance_mpc,480,0.019965,0.003257,0.407951,0.000854,proposed_better
+0.100000,0.080000,particle_filter_force_belief_mpc,480,0.088628,0.008660,0.362277,0.001113,proposed_better
+0.100000,0.080000,proposed_force_memory_transformer_v4,480,0.355816,0.011005,0.419405,0.000973,proposed_better
