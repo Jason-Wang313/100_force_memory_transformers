@@ -1,9 +1,25 @@
-case_id,task,family,proposed_success,strongest_baseline,baseline_success,success_gap,proposed_force_violation,proposed_damage,lesson
-1,drawer_unlatching,stiction_buildup,0.6310,online_residual_system_id,0.5408,0.0901,0.2364,0.1718,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
-2,drawer_unlatching,backlash,0.6684,online_residual_system_id,0.5561,0.1122,0.1939,0.1684,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
-3,valve_turning,tool_flex,0.6412,online_residual_system_id,0.5255,0.1156,0.2177,0.1412,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
-4,drawer_unlatching,clamp_slip,0.6548,online_residual_system_id,0.5340,0.1207,0.2602,0.1667,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
-5,cable_threading,stiction_buildup,0.6514,online_residual_system_id,0.5272,0.1241,0.2466,0.1531,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
-6,cap_twisting,sensor_dropout,0.6378,online_residual_system_id,0.5085,0.1293,0.2415,0.1684,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
-7,valve_turning,sensor_dropout,0.6395,online_residual_system_id,0.5085,0.1310,0.2398,0.1344,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
-8,peg_insertion,tool_flex,0.6684,online_residual_system_id,0.5323,0.1361,0.2177,0.1531,force memory is weakest when hidden load changes faster than the reset gate can clear stale state
+split,task,regime,seed,success,violation,damage,regret,utility,note
+extreme_unseen_force_mode,cable_threading_under_drag,clamp_slip_transition,9,1.000000,0.000000,1.000000,0.079913,-0.133421,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,clamp_slip_transition,3,1.000000,0.000000,0.000000,0.094480,-0.127940,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,latch_preload,9,0.000000,1.000000,1.000000,0.089061,-0.126618,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,clamp_slip_transition,5,1.000000,1.000000,0.000000,0.105901,-0.126357,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,latch_preload,8,1.000000,1.000000,0.000000,0.080114,-0.123411,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,clamp_slip_transition,7,1.000000,1.000000,1.000000,0.074127,-0.110482,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cap_twisting_with_slip,latch_preload,1,1.000000,1.000000,0.000000,0.060869,-0.106706,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,viscoelastic_relaxation,6,1.000000,0.000000,1.000000,0.060885,-0.105989,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,force_sensor_dropout,7,1.000000,0.000000,0.000000,0.081632,-0.101789,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,clamp_slip_transition,5,1.000000,1.000000,0.000000,0.080037,-0.098217,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,viscoelastic_relaxation,8,1.000000,1.000000,1.000000,0.085022,-0.090060,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,drawer_unlatching_with_stiction,force_sensor_dropout,9,1.000000,0.000000,1.000000,0.047045,-0.090013,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,latch_preload,0,0.000000,0.000000,0.000000,0.096298,-0.088977,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,clamp_slip_transition,4,1.000000,0.000000,0.000000,0.069716,-0.086664,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,latch_preload,5,1.000000,0.000000,1.000000,0.110169,-0.086123,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,viscoelastic_relaxation,2,1.000000,0.000000,0.000000,0.106159,-0.082962,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cap_twisting_with_slip,clamp_slip_transition,2,1.000000,0.000000,0.000000,0.056991,-0.082525,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,delayed_force_feedback,6,1.000000,1.000000,0.000000,0.108069,-0.081448,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,clamp_slip_transition,2,1.000000,1.000000,0.000000,0.083471,-0.079116,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,latch_preload,8,0.000000,1.000000,0.000000,0.078753,-0.077735,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,delayed_force_feedback,6,1.000000,0.000000,0.000000,0.091551,-0.076992,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,cable_threading_under_drag,latch_preload,3,1.000000,0.000000,0.000000,0.106128,-0.073403,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,press_fit_bimanual_alignment,force_sensor_dropout,6,0.000000,0.000000,0.000000,0.098188,-0.072760,hard case where force memory remains brittle under contact shift or hidden force mode
+extreme_unseen_force_mode,peg_insertion_with_preload,viscoelastic_relaxation,9,1.000000,0.000000,0.000000,0.116203,-0.072072,hard case where force memory remains brittle under contact shift or hidden force mode

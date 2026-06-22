@@ -1,21 +1,29 @@
 # Experiment Rigor Checklist
 
 - [x] Paper-specific benchmark rather than shared probability scaffold.
-- [x] Multiple contact-rich tasks.
-- [x] Multiple hidden force-memory regimes.
-- [x] Multiple evaluation splits including combined stress.
-- [x] Strong baselines: recurrent policy, ensemble MPC, conformal filter, online residual system ID, robust force-threshold MPC.
-- [x] Oracle upper bound.
-- [x] Seven seeds.
-- [x] Uncertainty intervals.
-- [x] Pairwise seed-level comparison against strongest baseline.
+- [x] Six contact-rich tasks.
+- [x] Eight hidden force-memory regimes.
+- [x] Eight evaluation splits including stress, transfer, calibration, damage-budget, and adversarial regimes.
+- [x] Fifteen methods including observation-only, force-history, recurrent, diffusion, ensemble MPC, adaptive impedance, HMM-MPC, particle-filter MPC, active probe, conformal filtering, online system ID, robust thresholding, v4 force memory, v5 force memory, and oracle.
+- [x] Ten seeds.
+- [x] 345,600 main rollout rows.
+- [x] 115,200 ablation rollout rows.
+- [x] 288,000 stress-sweep rollout rows.
+- [x] 138,240 fixed-risk rollout rows.
+- [x] Hard aggregate metrics.
+- [x] Pairwise comparisons.
+- [x] Calibration gate.
+- [x] Fixed-risk deployment gate.
 - [x] Stress sweep.
 - [x] Core ablations.
-- [x] Failure cases.
+- [x] Negative cases.
 - [x] Generated figures and LaTeX tables.
+- [x] 32-page manuscript.
+- [x] Boxed clickable citation settings.
 - [x] Honest terminal gate.
-- [x] Fresh 2026-06-15 continuation rerun logged at `C:/Users/wangz/robotics_massive_pool_paper_factory/logs/100_force_memory_transformers_continuation_rerun_20260615.log`.
+- [x] Fresh 2026-06-22 v5 rerun.
 - [ ] Real robot validation.
+- [ ] Accepted high-fidelity benchmark validation.
 - [ ] External benchmark validation.
 - [ ] Trained checkpoint release.
 - [ ] Hardware/benchmark rollout videos.

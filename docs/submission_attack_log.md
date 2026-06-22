@@ -16,34 +16,40 @@ Action: require external manipulation validation before submission.
 
 ## Attack 3: Baselines are weak
 
-Verdict: partly addressed. v4.1 retains recurrent, ensemble uncertainty, conformal risk, online residual system-ID, robust threshold MPC, and oracle baselines.
+Verdict: improved locally, not eliminated. V5 includes fifteen methods: observation-only, force-history, recurrent, diffusion, ensemble MPC, adaptive impedance, HMM-MPC, particle-filter MPC, active probe, conformal filtering, online system ID, robust thresholding, prior v4 force memory, v5 force memory, and oracle.
 
 Action: keep as STRONG_REVISE because baselines are stronger but still proxy systems.
 
 ## Attack 4: The mechanism may be unnecessary
 
-Verdict: addressed locally. Removing force-event tokens, decay memory, tail-risk planning, diagnostic probes, reset gates, or force-specific recurrence reduces success or worsens safety.
+Verdict: addressed locally. Removing force-risk calibration, diagnostic probes, memory reset, decay memory, force-event tokens, tail-risk planning, or the v5 controller reduces success, utility, or safety.
 
 Action: preserve ablation evidence.
 
 ## Attack 5: It wins by being unsafe
 
-Verdict: not supported locally. Proposed force-limit violation and damage are lower than the strongest non-oracle baseline.
+Verdict: not supported locally. V5 force violation is `0.20825` and damage is `0.09010`, both better than the strongest non-oracle safety references.
 
-Action: include safety table and limitation.
+Action: include hard aggregate, stress, and fixed-risk evidence.
 
-## Attack 6: The oracle gap is too large
+## Attack 6: Calibration is cosmetic
 
-Verdict: valid. Oracle combined-stress success is `0.833`; proposed is `0.664`.
+Verdict: addressed locally. V5 ECE is `0.01744` and clears the frozen calibration tolerance relative to conformal filtering.
 
-Action: report as a limitation and motivation for real model learning.
+Action: keep calibration gate in the terminal audit.
 
-## Attack 7: Related work is still shallow
+## Attack 7: The oracle gap remains
 
-Verdict: valid. v4 improves the boundary but does not complete a full manual survey.
+Verdict: valid. Oracle success is `0.86667`, while v5 is `0.73941`.
+
+Action: report as a limitation and motivation for trained-model and external validation.
+
+## Attack 8: Related work is generated and still shallow
+
+Verdict: valid. The citation scaffold is larger and navigable, but it still needs manual synthesis before a real submission.
 
 Action: require deeper related work before submission.
 
 ## Terminal Action
 
-STRONG_REVISE. Continue only with external experiments; do not submit this version to ICLR main.
+STRONG_REVISE. Continue only with trained-model and external experiments; do not submit this version to ICLR main.

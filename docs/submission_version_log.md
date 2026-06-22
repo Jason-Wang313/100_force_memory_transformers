@@ -20,6 +20,18 @@ Paper-specific force-memory evidence rebuild. Added a deterministic NumPy benchm
 
 - Added a pre-execution ICLR-main submission-readiness plan for Paper 100.
 - Reran `python src/run_experiment.py` on 2026-06-15 with thread caps and saved the continuation log.
-- Reconfirmed CSV coverage: 45 metric rows, 1,575 per-task/family rows, 11,025 seed/task/family rows, 315 seed/split rows, 8 pairwise rows, 7 ablation rows, 49 ablation seed rows, 1,715 ablation task/family/seed rows, 54 stress-sweep rows, 378 stress-sweep seed rows, and 8 failure cases.
-- Evidence outcome unchanged: proposed method beats `online_residual_system_id` on combined-stress success (0.664 vs 0.504), improves force-limit violation and damage, wins the paired seed gate, and survives core ablations.
+- Reconfirmed CSV coverage for the smaller v4 protocol.
+- Evidence outcome unchanged: proposed method beat `online_residual_system_id` on combined-stress success, improved force-limit violation and damage, won the paired seed gate, and survived core ablations.
 - Terminal decision: STRONG_REVISE, still not ICLR-main ready without external robot or benchmark validation.
+
+## v5-expanded
+
+- Added and executed `docs/paper100_expanded_submission_plan_20260622.md`.
+- Expanded the protocol to 6 tasks, 8 latent force-memory regimes, 8 splits, 15 methods, 10 seeds, and 6 episodes per cell.
+- Generated 345,600 main rollout rows, 115,200 ablation rollout rows, 288,000 stress-sweep rows, 138,240 fixed-risk rows, and 24 negative cases.
+- Added calibration, diagnostic, stress, ablation, fixed-risk, utility, regret, and scope gates.
+- Rebuilt the manuscript generator and validator.
+- Produced a 32-page manuscript with boxed clickable citations.
+- Copied only `C:/Users/wangz/Downloads/100.pdf`; no visible Desktop copy is part of the protocol.
+- Validated SHA256 `ADDCA0435B496A5A8A0783ED7BBCD6B7141F65E4A1FB740DAB3A6D353AB12D40`.
+- Terminal decision: STRONG_REVISE. All frozen local empirical gates pass, but ICLR-main readiness remains no because the scope gate fails.

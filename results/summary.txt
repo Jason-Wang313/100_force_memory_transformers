@@ -1,46 +1,91 @@
-Paper 100 force_memory_transformers evidence rebuild
-Design: 5 tasks x 7 latent force-memory regimes x 5 splits x 9 methods, 7 seeds, 84 episodes/group.
+Paper 100: force_memory_transformers expanded v5 evidence audit
 Terminal decision: STRONG_REVISE
-Rationale: local benchmark supports the force-memory mechanism against the strongest non-oracle baseline, but no real-robot or external benchmark validation is available
+ICLR main ready: no
+Design: 6 tasks x 8 latent force-memory regimes x 8 splits x 15 methods, 10 seeds, 6 episodes per seed/task/regime/split/method cell.
+Claim under test: risk-calibrated force memory should improve contact-rich manipulation beyond system ID, adaptive impedance, particle-filter force belief, conformal safety, and force-history policies.
 
-Combined-stress ranking:
-oracle_latent_force_planner: success=0.833 +/- 0.007, viol=0.186, damage=0.135, latent_acc=0.820, false_alarm=0.053, regret=0.000
-proposed_force_memory_transformer: success=0.664 +/- 0.006, viol=0.231, damage=0.161, latent_acc=0.662, false_alarm=0.114, regret=0.169
-online_residual_system_id: success=0.504 +/- 0.008, viol=0.271, damage=0.186, latent_acc=0.443, false_alarm=0.226, regret=0.329
-ensemble_uncertainty_mpc: success=0.466 +/- 0.007, viol=0.271, damage=0.194, latent_acc=0.344, false_alarm=0.249, regret=0.367
-recurrent_contact_policy: success=0.458 +/- 0.005, viol=0.311, damage=0.213, latent_acc=0.409, false_alarm=0.180, regret=0.375
-conformal_risk_filter: success=0.435 +/- 0.010, viol=0.246, damage=0.180, latent_acc=0.321, false_alarm=0.274, regret=0.398
-force_history_behavior_cloning: success=0.405 +/- 0.005, viol=0.323, damage=0.221, latent_acc=0.349, false_alarm=0.197, regret=0.428
-robust_force_threshold_mpc: success=0.397 +/- 0.009, viol=0.229, damage=0.169, latent_acc=0.302, false_alarm=0.295, regret=0.437
-observation_only_transformer: success=0.317 +/- 0.006, viol=0.335, damage=0.236, latent_acc=0.254, false_alarm=0.234, regret=0.517
+Row counts:
+- ablation_metric_rows: 10
+- ablation_rollout_rows: 115200
+- ablation_seed_rows: 100
+- dataset_summary_rows: 23040
+- fixed_risk_metric_rows: 12
+- fixed_risk_pairwise_rows: 10
+- fixed_risk_rows: 138240
+- fixed_risk_seed_rows: 120
+- hard_metric_rows: 15
+- hard_pairwise_rows: 14
+- hard_seed_rows: 150
+- main_group_rows: 57600
+- main_metric_rows: 120
+- main_rollout_rows: 345600
+- main_seed_metric_rows: 150
+- negative_cases: 24
+- stress_metric_rows: 100
+- stress_rollout_rows: 288000
+- stress_seed_rows: 1000
+
+Hard-aggregate evidence:
+- oracle_latent_force_planner: success=0.86667 +/- 0.00000, violation=0.16285, damage=0.05972, latent_acc=0.79991, stale_fp=0.02326, missed_fn=0.08299, ece=0.01797, cost=0.30977, regret=0.00044, utility=0.57489
+- risk_calibrated_force_memory_transformer_v5: success=0.73941 +/- 0.00000, violation=0.20825, damage=0.09010, latent_acc=0.72231, stale_fp=0.02630, missed_fn=0.12917, ece=0.01744, cost=0.39964, regret=0.07661, utility=0.32439
+- proposed_force_memory_transformer_v4: success=0.59054 +/- 0.00000, violation=0.32743, damage=0.19175, latent_acc=0.58707, stale_fp=0.05833, missed_fn=0.18498, ece=0.04462, cost=0.35702, regret=0.22067, utility=-0.07863
+- active_tactile_probe_then_plan: success=0.54705 +/- 0.00000, violation=0.31085, damage=0.17179, latent_acc=0.62465, stale_fp=0.03724, missed_fn=0.16545, ece=0.03710, cost=0.50906, regret=0.26059, utility=-0.11125
+- particle_filter_force_belief_mpc: success=0.54705 +/- 0.00000, violation=0.30365, damage=0.16701, latent_acc=0.56979, stale_fp=0.05694, missed_fn=0.20061, ece=0.03405, cost=0.43543, regret=0.25450, utility=-0.05496
+- contact_mode_hmm_mpc: success=0.47057 +/- 0.00000, violation=0.33724, damage=0.19002, latent_acc=0.47734, stale_fp=0.06415, missed_fn=0.24366, ece=0.03595, cost=0.35663, regret=0.33731, utility=-0.21328
+- online_residual_system_id: success=0.45972 +/- 0.00000, violation=0.35095, damage=0.20260, latent_acc=0.41667, stale_fp=0.07326, missed_fn=0.23906, ece=0.04000, cost=0.36066, regret=0.34971, utility=-0.25306
+- adaptive_impedance_mpc: success=0.45304 +/- 0.00000, violation=0.27023, damage=0.14141, latent_acc=0.39097, stale_fp=0.05920, missed_fn=0.24688, ece=0.02964, cost=0.39914, regret=0.34604, utility=-0.10017
+- ensemble_uncertainty_mpc: success=0.32769 +/- 0.00000, violation=0.39132, damage=0.23359, latent_acc=0.33750, stale_fp=0.06528, missed_fn=0.33134, ece=0.02310, cost=0.29442, regret=0.47612, utility=-0.44752
+- diffusion_policy_force_history: success=0.32413 +/- 0.00000, violation=0.46120, damage=0.29740, latent_acc=0.30634, stale_fp=0.08455, missed_fn=0.33177, ece=0.04243, cost=0.24149, regret=0.48959, utility=-0.61691
+- conformal_risk_filter: success=0.31276 +/- 0.00000, violation=0.30217, damage=0.16137, latent_acc=0.29618, stale_fp=0.05564, missed_fn=0.35304, ece=0.01362, cost=0.37981, regret=0.48908, utility=-0.30578
+- recurrent_contact_policy: success=0.29878 +/- 0.00000, violation=0.48628, damage=0.31762, latent_acc=0.26424, stale_fp=0.09740, missed_fn=0.34844, ece=0.04717, cost=0.18584, regret=0.51292, utility=-0.68195
+- robust_force_threshold_mpc: success=0.27769 +/- 0.00000, violation=0.28811, damage=0.14878, latent_acc=0.21085, stale_fp=0.06181, missed_fn=0.37613, ece=0.01717, cost=0.35724, regret=0.52763, utility=-0.30682
+- force_history_behavior_cloning: success=0.21918 +/- 0.00000, violation=0.52231, damage=0.33186, latent_acc=0.19705, stale_fp=0.09306, missed_fn=0.37804, ece=0.03920, cost=0.15050, regret=0.58628, utility=-0.81163
+- observation_only_transformer: success=0.12387 +/- 0.00000, violation=0.52908, damage=0.34757, latent_acc=0.12517, stale_fp=0.07248, missed_fn=0.41172, ece=0.03022, cost=0.11610, regret=0.68225, utility=-0.94447
+
+Reference winners:
+- best_success_reference=proposed_force_memory_transformer_v4
+- best_violation_reference=adaptive_impedance_mpc
+- best_damage_reference=adaptive_impedance_mpc
+- best_regret_reference=proposed_force_memory_transformer_v4
+- best_utility_reference=particle_filter_force_belief_mpc
+- best_diagnostic_reference=active_tactile_probe_then_plan
+- best_ece_reference=conformal_risk_filter
+- max_stress_reference=particle_filter_force_belief_mpc
+- fixed_risk_reference=adaptive_impedance_mpc
+- v5_success=0.73941
+- v5_violation=0.20825
+- v5_damage=0.09010
+- v5_regret=0.07661
+- v5_utility=0.32439
 
 Gate outcomes:
-success_gate: True
-safety_gate: True
-pairwise_gate: True
-ablation_gate: True
-success_margin_vs_strongest: 0.15981535471331387
-force_violation_delta_vs_strongest: -0.03945578231292521
-damage_delta_vs_strongest: -0.024392614188532585
-ablation_margin_vs_best_removed_component: 0.031341107871720064
-strongest_non_oracle_baseline: online_residual_system_id
-best_removed_component: minus_tail_risk_planner
+- success_gate: True
+- force_violation_gate: True
+- damage_gate: True
+- regret_gate: True
+- utility_gate: True
+- diagnostic_gate: True
+- calibration_gate: True
+- ablation_gate: True
+- stress_gate: True
+- fixed_risk_gate: True
+- scope_gate: False
 
-Pairwise proposed comparisons:
-conformal_risk_filter: diff=0.229 +/- 0.011, wins=7/7, decision=proposed_better
-ensemble_uncertainty_mpc: diff=0.198 +/- 0.009, wins=7/7, decision=proposed_better
-force_history_behavior_cloning: diff=0.258 +/- 0.008, wins=7/7, decision=proposed_better
-observation_only_transformer: diff=0.347 +/- 0.006, wins=7/7, decision=proposed_better
-online_residual_system_id: diff=0.160 +/- 0.010, wins=7/7, decision=proposed_better
-oracle_latent_force_planner: diff=-0.169 +/- 0.006, wins=0/7, decision=not_decisive
-recurrent_contact_policy: diff=0.206 +/- 0.007, wins=7/7, decision=proposed_better
-robust_force_threshold_mpc: diff=0.267 +/- 0.013, wins=7/7, decision=proposed_better
+Terminal rationale:
+- all frozen local empirical gates pass; terminal state remains STRONG_REVISE only because scope/external-validation evidence is missing
+- scope gate fails because no real robot, accepted high-fidelity benchmark, external benchmark, or trained checkpoint evidence exists
 
-Ablations:
-full_force_memory_transformer: success=0.660 +/- 0.006, damage=0.167, false_alarm=0.115, note=all proposed components
-minus_tail_risk_planner: success=0.628 +/- 0.006, damage=0.188, false_alarm=0.125, note=uses mean predicted value without tail-risk planning
-minus_diagnostic_probes: success=0.587 +/- 0.003, damage=0.171, false_alarm=0.137, note=does not actively disambiguate hidden force modes
-minus_memory_reset_gate: success=0.579 +/- 0.006, damage=0.180, false_alarm=0.287, note=keeps stale force memories after contact regime changes
-minus_force_event_tokens: success=0.566 +/- 0.002, damage=0.177, false_alarm=0.162, note=removes signed force-event tokens
-minus_decay_memory: success=0.557 +/- 0.005, damage=0.182, false_alarm=0.231, note=removes calibrated memory decay
-recurrent_memory_only: success=0.482 +/- 0.004, damage=0.210, false_alarm=0.184, note=ordinary recurrence without force-specific state
+Ablation summary:
+- full_risk_calibrated_force_memory_transformer_v5: success=0.72630, damage=0.09158, regret=0.07660, utility=0.32444, stale_fp=0.02448
+- no_force_risk_calibration: success=0.67882, damage=0.13108, regret=0.12978, utility=0.17121, stale_fp=0.06649
+- no_diagnostic_probes: success=0.64505, damage=0.12752, regret=0.15779, utility=0.16345, stale_fp=0.05226
+- no_memory_reset_gate: success=0.62161, damage=0.14358, regret=0.17971, utility=0.08437, stale_fp=0.07474
+- no_decay_memory: success=0.59991, damage=0.14488, regret=0.20314, utility=0.06814, stale_fp=0.06328
+- no_force_event_tokens: success=0.57856, damage=0.13819, regret=0.22968, utility=0.04960, stale_fp=0.03481
+- no_tail_risk_planner: success=0.64627, damage=0.17786, regret=0.15713, utility=0.02918, stale_fp=0.03872
+- v4_force_memory_transformer_rules: success=0.58186, damage=0.18446, regret=0.22080, utility=-0.07768, stale_fp=0.06467
+- online_system_id_only: success=0.45087, damage=0.19965, regret=0.35028, utility=-0.25428, stale_fp=0.07083
+- recurrent_memory_only: success=0.34384, damage=0.29991, regret=0.45845, utility=-0.57596, stale_fp=0.09158
+
+No hardware validation is claimed; this is a local CPU-only executable surrogate audit.
+terminal=STRONG_REVISE
